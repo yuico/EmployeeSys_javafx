@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<BorderPane fx:id="bpMain" id="BPane" prefHeight="600" prefWidth="1200"  xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="employeedatamanagement.FXMLDocumentController">
+    
+    <top>
+        <VBox fx:id="topVbox1">
+            <padding>
+                <Insets top="0" bottom="0" left="15" right="10" />
+            </padding>
+            <HBox alignment="CENTER" spacing="10">
+                <padding>
+                    <Insets top="10" bottom="10" left="10" right="10" />
+                </padding>
+                <Label fx:id="title" id="title" text="Manage Employees"></Label>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox fx:id="vbox1">
+            <GridPane  styleClass="gridpane" alignment="CENTER" vgap="5" hgap="20">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="30" />
+                    <ColumnConstraints percentWidth="70" />
+                </columnConstraints>
+                <GridPane.margin>
+                    <Insets top="5" bottom="5" left="5" right="5" />
+                </GridPane.margin>
+                <children>
+                
+                    <VBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+                        <padding>
+                            <Insets top="10" bottom="10" left="10" right="10" />
+                        </padding>
+                        <Label id="lstEmployees" text="List of Employees: "></Label>
+                        <ListView fx:id="lstView"></ListView>
+                    </VBox>
+                    <VBox styleClass="VBox" GridPane.rowIndex="0" 
+                          GridPane.columnIndex="1" spacing="5">
+                        <padding>
+                            <Insets top="10" bottom="10" left="10" right="10" />
+                        </padding>
+                        <HBox spacing="5">
+                            <Label  text="ID:"></Label>
+                            <TextField styleClass="numField" fx:id="txtID"></TextField>
+                            <Label  text="FirstName:"></Label>
+                            <TextField styleClass="nameField" fx:id="txtFirstName"></TextField>
+                            <Label  text="LastName:"></Label>
+                            <TextField styleClass="nameField" fx:id="txtLastName"></TextField>
+                    
+                        </HBox>
+                        <HBox spacing="5">
+                            <Label  text="StartDate: "></Label>
+                            <TextField styleClass="numField" fx:id="txtStartDate"></TextField>
+                            <Label  text="Salary: "></Label>
+                            <TextField styleClass="numField" fx:id="txtSalary"></TextField>
+                            
+                        </HBox>
+                        <HBox spacing="5">
+                            
+                            <Label  text="Marrital: "></Label>
+                            <TextField styleClass="numField" fx:id="txtMarrital"></TextField>
+                            <Label  text="Certificate: "></Label>
+                            <TextField styleClass="bigField" fx:id="txtCertificate"></TextField>
+                            
+                                                 
+                        </HBox>
+                        <HBox spacing="20">
+                            
+                            <Label text="Title:"></Label>
+                            <TextField styleClass="bigField" fx:id="txtTitle"></TextField>
+                            <Label text="Department:"></Label>
+                            <!--<TextField styleClass="nameField" fx:id="txtDepartment"></TextField>-->
+                            <ComboBox styleClass="depField"  fx:id="cmbBoxDepartment"></ComboBox>
+                            
+                        </HBox>
+                        <HBox spacing="40" alignment= "CENTER_LEFT">
+                            <padding>
+                                <Insets top="10" bottom="10" left="10" right="10" />
+                            </padding>
+                        
+                        
+                            <Button fx:id="btnEdit" text="_Edit"  mnemonicParsing="true" onAction="#edit"></Button>
+                            <Button fx:id="btnAdd" text="_Add New"  mnemonicParsing="true" onAction="#add"></Button>
+                            <Button fx:id="btnSave" text="_Save"  mnemonicParsing="true" onAction="#save"></Button>
+                            <Button fx:id="btnCancel" text="_Cancel"  mnemonicParsing="true" onAction="#cancel"></Button>
+                            <Button fx:id="btnDelete" text="_Delete"  mnemonicParsing="true" onAction="#delete"></Button>
+                            
+                        </HBox>
+                        <HBox spacing="400" alignment="CENTER_LEFT">
+                            <padding>
+                                <Insets top="10" bottom="10" left="10" right="10" />
+                            </padding>
+                        
+                            <Button fx:id="btnSearch" text="_Search"  mnemonicParsing="true" onAction="#swap"></Button>
+                            <Button fx:id="btnExit" text="E_xit"  mnemonicParsing="true" onAction="#exit"></Button>
+                        </HBox>
+
+                    </VBox>
+                
+                </children>
+            </GridPane>
+        </VBox>
+    </center>
+    
+    <bottom >
+        
+    </bottom>
+    <stylesheets>
+        <URL value="@../css/main.css" />        
+    </stylesheets>
+    <fx:define>
+        <VBox fx:id="topVbox2">
+            <padding>
+                <Insets top="0" bottom="0" left="15" right="10" />
+            </padding>
+            <HBox alignment="CENTER" spacing="10">
+                <padding>
+                    <Insets top="10" bottom="10" left="10" right="10" />
+                </padding>
+                <Label  id="title" text="Search Employee"></Label>
+            </HBox>
+        </VBox>
+    </fx:define>
+    <fx:define>
+        <VBox fx:id="vbox2"  prefWidth="800" spacing="5">
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20" />
+            </padding>
+            <fx:define>
+                <ToggleGroup fx:id="grpSearchby"/>
+            </fx:define>
+            <children>
+                
+                <HBox  prefWidth="850" spacing="20">
+                    <Label text="Search by: " />
+                    <RadioButton fx:id="rbtID" text="ID" toggleGroup="$grpSearchby"/>
+                    
+                    <RadioButton fx:id="rbtFirstName" text="Name" toggleGroup="$grpSearchby"/>
+                    
+                </HBox>  
+                <HBox prefWidth="750" spacing="15">
+                    <TextField fx:id="txtSearch" prefWidth="690" onAction="#doSearch"></TextField>
+                    <Button fx:id="btnDoSearch" text="_Search"  mnemonicParsing="true" onAction="#doSearch"  ></Button>
+                </HBox>
+                <HBox prefWidth="850">
+                    <ListView  prefWidth="800" fx:id="lstResult"></ListView>
+                </HBox>
+                <HBox prefWidth="800" spacing="20" alignment="CENTER">
+                    <Button text="_Select" fx:id="btnSelect" mnemonicParsing="true" onAction="#select" ></Button>
+                    <Button text="_Cancel" fx:id="btnBacktoMain" mnemonicParsing="true" onAction="#swap"></Button>
+                </HBox> 
+            </children>
+        </VBox>
+    </fx:define>
+</BorderPane>

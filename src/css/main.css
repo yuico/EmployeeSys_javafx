@@ -1,0 +1,79 @@
+
+.VBox{
+    -fx-border-insets: 10px;
+    -fx-grid-lines-visible: true;
+    -fx-fill-width: true;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-style:dashed;
+    -fx-border-color:#006633;
+    -fx-border-width: 2px;
+
+}
+.text-field{
+    -fx-font-size:1.4em;
+    /*or 110%*/
+
+    -fx-prompt-text-fill: black;
+}
+.label{
+    -fx-text-fill: black;
+    -fx-font-family:fantasy;
+    -fx-font-size: 150%;
+    /*    -fx-font-style:italic;*/
+    -fx-font-weight:bold;
+    -fx-alignment:CENTER_LEFT;
+
+}
+.button{
+
+    -fx-text-fill: black;
+    -fx-font-size: 150%;
+    -fx-background-color:lightgrey;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-max-width:1000;
+
+
+}
+
+.button:hover{
+    -fx-text-fill: red;
+    -fx-background-color: honeydew;
+}
+
+
+
+#btnexit{
+    -fx-text-fill: black;
+    -fx-font-size: 150%;
+    -fx-background-color:lightgrey;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    /*    -fx-max-width:1000;*/
+}
+.hbox{
+    -fx-padding: 5px;
+}
+.numField{
+    -fx-max-width:100px;
+}
+.nameField{
+    -fx-max-width:300px;
+}
+#title{
+    -fx-font-size:200%
+
+}
+#lstStocks{
+    -fx-font-weight:bold;
+}
+.bigField{
+    -fx-max-width:200px;
+}
+.depField{
+    -fx-font-size:150%;
+}
+
+
